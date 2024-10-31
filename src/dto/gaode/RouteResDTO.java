@@ -1,4 +1,6 @@
-package dto;
+package dto.gaode;
+
+import java.util.List;
 
 /**
  * 规划方案列表
@@ -18,7 +20,7 @@ public class RouteResDTO {
     /**
      * 路线列表
      */
-    private PathsDTO paths;
+    private List<PathsDTO> paths;
 
     public String getOrigin() {
         return origin;
@@ -36,11 +38,11 @@ public class RouteResDTO {
         this.destination = destination;
     }
 
-    public PathsDTO getPaths() {
+    public List<PathsDTO> getPaths() {
         return paths;
     }
 
-    public void setPaths(PathsDTO paths) {
+    public void setPaths(List<PathsDTO> paths) {
         this.paths = paths;
     }
 }

@@ -1,7 +1,7 @@
 package util;
 
 import cn.hutool.core.bean.BeanUtil;
-import dto.BicyclingRouteReqDTO;
+import dto.gaode.BicyclingRouteReqDTO;
 
 import java.net.URI;
 import java.net.http.HttpClient;
