@@ -1,13 +1,14 @@
 package service.impl;
 
+import bo.gpx.TrkpointBO;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
-import dto.gaode.BicyclingRouteReqDTO;
-import dto.gaode.BicyclingRouteResponseDTO;
-import dto.gaode.RouteResDTO;
+import dto.gaode.*;
 import service.GaodeWebRouteService;
 import util.GaoDeWebUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,7 +58,17 @@ public class RoutePlanningService implements GaodeWebRouteService {
         //起点
         String origin = route.getOrigin();
 
+        //遍历每条规划路径
         route.getPaths().forEach(path -> {
+            List<TrkpointBO> trkpt = new ArrayList<>();
+            List<String> polylineList = path.getSteps().stream().map(StepsDTO::getPolyline).toList();
+
+//            polylineList.for
+            StringBuilder sb = new StringBuilder();
+            //拼接途径经纬度
+            polylineList.forEach(polyline -> sb.append(polyline).append(";"));
+            //分割途径经纬度
+            List<String> latLonList = StrUtil.split(sb.toString(), ";");
 
         });
     }
